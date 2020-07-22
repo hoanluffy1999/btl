@@ -1,0 +1,61 @@
+﻿@model Web_Ban_Sach.Models.BookCategoryViewModel
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section jsFooter{
+    <script>
+
+    $("#btnImage").on('click', function (e) {
+        e.preventDefault();
+        var finder = new CKFinder();
+        finder.selectActionFunction = function (url) {
+            $("#txtImage").val(url);
+            $('#imgAvata').attr('src', url);
+        }
+        finder.popup();
+    });
+
+    </script>
+}
+<div class="content">
+    <h2 class="text-info">Sửa thông tin danh mục</h2>
+    @using (Html.BeginForm("Update", "DanhMuc", FormMethod.Post))
+    {
+        if (ViewData["successMsg"] != null)
+        {
+            <div class="text-success">
+                Sửa thông tin danh mục thành công
+            </div>
+        }
+        <div class="form-group">
+            <label for="name">Tên danh mục:</label>
+
+            @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label for="name">Ảnh đại diện:</label>
+
+            <img src="@Model.Image" class="item-image" id="imgAvata" />
+            @Html.TextBoxFor(model => model.Image, new { @class = "form-control", id = "txtImage" })
+            <button type="button" class="btn btn-secondary" id="btnImage">Chọn ảnh</button>
+        </div>
+        <div class="form-group">
+            <label for="name">Mô tả:</label>
+
+            @Html.TextBoxFor(model => model.Description, new { @class = "form-control g" })
+        </div>
+        <div class="form-group">
+            <label for="name">trạng thái:</label>
+
+            @Html.EditorFor(model => model.Status, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Sửa</button>
+            <button type="reset" class="btn btn-danger">Xóa</button>
+        </div>
+    }
+</div>
+

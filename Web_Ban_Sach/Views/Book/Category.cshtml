@@ -1,0 +1,100 @@
+﻿@model Web_Ban_Sach.Infrastructure.Core.PaginationSet<Web_Ban_Sach.Models.BookViewModel>
+@{
+    ViewBag.Title = "Category";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var category = (Web_Ban_Sach.Models.BookCategoryViewModel)ViewBag.Category;
+}
+
+
+<div class="banner-02" id="head1">
+    <img src="~/images/tt/illustratie.gif" alt="">
+</div>
+<!--danh sách phân loại-->
+<div class="container">
+    <div class="product-full">
+        @{ Html.RenderAction("ListLeft", "Book");}
+        <div class="item-books">
+            <h3>@category.Name</h3>
+            <div class="book-full">
+                @if (Model.count > 0)
+                {
+                    foreach (var item in Model.items)
+                    {
+                        var url = "/chi-tiet-sach-" + item.ID;
+                        <div class="book-s image">
+                            <a href="@url"><img src="@item.Image" alt=""></a>
+                            <a href="@url">@item.Name</a>
+                            <p>@item.Price</p>
+                            <div class="icon-b">
+                                <a href=""> <i class="fa fa-commenting" aria-hidden="true"></i></a>
+                                <a href=""> <i class="fa fa-heart" aria-hidden="true"></i></a>
+                                <a href=""> <i class="fa fa-cart-plus" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <span class="text-success">Khong co sach cua danh muc nay</span>
+                }
+
+
+
+            </div>
+            <div class="number">
+                @if (Model.TotalPages > 1)
+                {
+                    // Create numeric links
+                    var startPageIndex = Math.Max(1, Model.Page - Model.MaxPage / 2);
+                    var endPageIndex = Math.Min(Model.TotalPages, Model.Page + Model.MaxPage / 2);
+
+                    <nav>
+                        <ul class="pagination">
+                            @if (Model.Page > 1)
+                            {
+                                <li>
+                                    <a href="?page=1" aria-label="First">
+                                        <i class="fa fa-angle-double-left"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="?page=@(Model.Page-1)" aria-label="Previous">
+                                        <i class="fa fa-angle-double-left"></i>
+                                    </a>
+                                </li>
+                            }
+
+                            @for (int i = startPageIndex; i <= endPageIndex; i++)
+                            {
+                                if (Model.Page == i)
+                                {
+                                    <li class="active"><a href="?page=@i" title="Trang @i">@i</a></li>
+                                }
+                                else
+                                {
+                                    <li><a href="?page=@i" title="Trang @i">@i</a></li>
+                                }
+                            }
+                            @if (Model.Page < Model.TotalPages)
+                            {
+                                <li>
+                                    <a href="?page=@(Model.Page+1)" aria-label="Next">
+                                        <i class="fa fa-angle-double-right"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="?page=@Model.TotalPages" aria-label="Last">
+                                        <i class="fa fa-angle-double-right"></i>
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    </nav>
+                }
+            </div>
+        </div>
+
+
+    </div>
+
+</div>

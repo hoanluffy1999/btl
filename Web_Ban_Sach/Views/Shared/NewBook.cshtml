@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Web_Ban_Sach.Models.BookViewModel>
+<div class="new-book">
+    <h1> Sách Mới Phát Hành</h1>
+    <div class="slider">
+
+
+        <div class="slides">
+            @if (Model != null)
+            {
+                var i = 1;
+                foreach (var item in Model)
+                {
+                    var id = "silde-" + i;
+                    i++;
+                    var url = "chi-tiet-sach-" + item.ID;
+                    <div id="@id">
+                        <a href="@url"><img src="@item.Image" alt=""></a>
+                    </div>
+                }
+            }
+
+
+        </div>
+    </div>
+</div>

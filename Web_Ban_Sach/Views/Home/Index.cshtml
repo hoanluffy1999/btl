@@ -1,0 +1,155 @@
+﻿@model IEnumerable<Web_Ban_Sach.Models.BookCategoryViewModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--sản phẩm-->
+<div>
+    <div class="bg" id="bg">
+        <div class="title">
+            <h2>Click <span>luôn tay</span></h2>
+            <h2>Sách <span>hay </span>có ngay</h2>
+        </div>
+    </div>
+</div>
+<div class="container">
+   @{ Html.RenderAction("NewBook", "Home");}
+
+</div>
+<div class="background">
+    <div class="banner-2">
+
+        <h1>Hãy đến với Sách hay</h1>
+        <p>Theo dõi để có thể có nhận được sách mình yêu thích</p>
+        <div class="text-1">
+            <form action="#">
+                <div class="newsletter__box">
+                    <input type="email" placeholder="Enter your e-mail">
+                    <button>subcribe</button>
+
+                </div>
+            </form>
+        </div>
+
+        
+    </div>
+</div>
+<!--sản phẩm-->
+<div class="container">
+    <div class="new-book">
+
+
+        <h1>Tất cả Sách</h1>
+        <p>
+            Có rất nhiều thể loại phù hợp với mọi sở thích và mọi lứa tuổi cho bạn đọc
+
+        </p>
+        <div class="tabs">
+
+            <input type="radio" id="tab1" name="tab-control" checked>
+            <input type="radio" id="tab2" name="tab-control">
+            <input type="radio" id="tab3" name="tab-control">
+            <input type="radio" id="tab4" name="tab-control">
+            <ul>
+                @if (Model != null)
+                {
+                    var i = 1;
+                    foreach (var item in Model)
+                    {
+                        var tab = "tab" + i;
+                        i++;
+                        <li title="@item.Name">
+                            <label for="@tab" role="button"><br><span>@item.Name</span></label>
+                        </li>
+                    }
+                }
+
+
+            </ul>
+
+            <div class="slider">
+                <div class="indicator"></div>
+            </div>
+            <div class="content">
+                @foreach (var item in Model)
+                {
+                    <section>
+                        <h2>@item.Name</h2>
+                        <div class="item-s">
+                            @foreach (var book in item.Books)
+                            {
+                                var url = "/chi-tiet-sach-" + book.ID;
+                                <div class="books">
+                                    <a href="@url"> <img src="@book.Image" alt=""></a>
+                                    <a href="@url">@book.Name</a>
+                                </div>
+                            }
+
+
+                        </div>
+                    </section>
+                }
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+<!--Tin tức-->
+<div class="container">
+    <div class="detail">
+        <h1>Tin Tức</h1>
+        <p>Tin về sách và tác giả cho các bạn đọc</p>
+        <div class="detail-2">
+            <div class="item-right">
+                <div class="pic-right">
+                    <a href=""> <img src="./images/tt/1.jpg"></a>
+                </div>
+                <div class="detail-right">
+                    <h4>Sản Phẩm hot trong ngày</h4>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                    <span>20:40---12/12/2019</span>
+                </div>
+            </div>
+
+            <div class="item-right">
+                <div class="pic-right">
+                    <a href=""> <img src="./images/tt/1.jpg"></a>
+                </div>
+                <div class="detail-right">
+                    <h4>Sản Phẩm hot trong ngày</h4>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                    <span>20:40---12/12/2019</span>
+                </div>
+            </div>
+            <div class="item-right">
+                <div class="pic-right">
+                    <a href=""><img src="./images/tt/1.jpg"></a>
+                </div>
+                <div class="detail-right">
+                    <h4>Sản Phẩm hot trong ngày</h4>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                    <span>20:40---12/12/2019</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="container-full">
+
+</div>

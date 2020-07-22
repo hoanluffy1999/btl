@@ -1,0 +1,88 @@
+﻿
+@model Web_Ban_Sach.Models.BookViewModel
+@{
+    ViewBag.Title = "update";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section jsFooter{
+    <script>
+
+    $("#btnImage").on('click', function (e) {
+        e.preventDefault();
+        var finder = new CKFinder();
+        finder.selectActionFunction = function (url) {
+            $("#txtImage").val(url);
+            $('#imgAvata').attr('src', url);
+        }
+        finder.popup();
+    });
+
+    </script>
+}
+<div class="content">
+    <h2 class="text-info">Sua sách</h2>
+    @using (Html.BeginForm("Update", "Sach", FormMethod.Post))
+    {
+        if (ViewData["successMsg"] != null)
+        {
+            <div class="text-success">
+                Thêm tác giả thành công
+            </div>
+        }
+        <div class="form-group">
+            <label for="name">Tên sach:</label>
+
+            @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label for="image">Ảnh đại diện:</label>
+
+            <img class="item-image" id="imgAvata" />
+            @Html.TextBoxFor(model => model.Image, new { @class = "form-control", id = "txtImage" })
+            <button type="button" class="btn btn-secondary" id="btnImage">Chon anh</button>
+        </div>
+        <div class="form-group">
+            <label for="description">Mô tả:</label>
+
+            @Html.TextAreaFor(model => model.Description, new { @class = "form-control g" })
+        </div>
+        <div class="form-group">
+            <label for="content">Nội dung chính:</label>
+
+            @Html.TextAreaFor(model => model.Content, new { @class = "form-control g" })
+        </div>
+        <div class="form-group">
+            <label for="category">Danh mục</label>
+            @Html.DropDownListFor(model => model.CategoryID, null, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label for="nxb">Nha xuat ban</label>
+            @Html.DropDownListFor(model => model.NxbID, null, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label for="tacgia">Tac gia</label>
+            @Html.DropDownListFor(model => model.TacGiaID, null, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label for="name">Gia:</label>
+
+            @Html.EditorFor(model => model.Price, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label for="name">So trang:</label>
+
+            @Html.EditorFor(model => model.PageNumber, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label for="name">trạng thái:</label>
+
+            @Html.EditorFor(model => model.Status, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Sua</button>
+            <button type="reset" class="btn btn-danger">Xóa</button>
+        </div>
+    }
+</div>
+

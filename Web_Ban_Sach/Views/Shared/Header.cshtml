@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Web_Ban_Sach.Models.BookCategoryViewModel>
+<div class="header">
+    <div class="full-head" id="head">
+        <div class="logo">
+            <a href="index.html"><img src="~/images/logo/logo.png" alt=""></a>
+        </div>
+        <div class="menu">
+            <nav>
+                <ul>
+                    <li><a href="/">Trang Chủ</a></li>
+                    <li>
+                        <a href="javascript:void(0)">Danh Mục Sách</a>
+                        <ul>
+
+                            @foreach (var item in Model)
+                            {
+                                var url = "/danh-muc-sach-" + item.ID;
+                                <li><a href="@url">@item.Name</a></li>
+                            }
+                        </ul>
+                    </li>
+
+                    <li class="drop">
+                        <a href="/danh-sach-tac-gia">Tác Giả</a>
+                    </li>
+                    <li class="drop"><a href="tintuc.html">Tin Tức</a></li>
+                    <li><a href="lienhe.html">Liên Hệ</a></li>
+
+                </ul>
+            </nav>
+        </div>
+        <div class="search">
+            <input type="text" name="" id="" placeholder="tìm kiếm...">
+            <button><i class="fa fa-search" aria-hidden="true"></i> </button>
+
+        </div>
+        <div class="icon">
+
+
+            <a href="tacgia.html">
+                <i class="fa fa-heart" aria-hidden="true"></i>
+            </a>
+            <a href="gio-hang">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            </a>
+            <a href="dangky.html">
+                <i class="fa fa-sign-in" aria-hidden="true"></i>
+            </a>
+            <a href="dangnhap.html">
+                <i class="fa fa-user-circle" aria-hidden="true"></i>
+            </a>
+        </div>
+    </div>
+</div>

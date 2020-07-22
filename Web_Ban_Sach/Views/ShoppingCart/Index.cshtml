@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-1 bg-check">
+    <div class="check-out" id="bg">
+        <h1>Giỏ hàng</h1>
+        <table>
+            <thead>
+                <tr>
+                    <td> Tên Sản Phẩm</td>
+                    <td>Đơn Giá</td>
+                    <td>Số Lượng</td>
+                    <td>Thanh tien</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody id="cartBody">
+                
+                <tr>
+                    <td><img src="./images/books/1.jpg" alt=""><br><a href="">Bụi Sao</a></td>
+
+                    <td>50.000</td>
+                    <td><input type="number" value="1"></td>
+                    <td>thanh tien</td>
+                    <td><a href=""><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                </tr>
+                <tr>
+                    <td><button>Cập Nhật Giỏ Hàng</button></td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <div class="check-cart">
+
+            <div class="check_2">
+                <h3>Thông Tin Giao Hàng</h3>
+                <form action="">
+                    <input type="text" placeholder="Họ tên">
+                    <input type="text" placeholder="Địa chỉ">
+                    <input type="text" placeholder="Số điện thoại">
+                    <input type="text" placeholder="Email">
+
+                </form>
+                <p>Nếu bạn có tài khoản, hãy <a href="dangnhap.html">đăng nhập </a>để theo dõi dễ dàng hơn</p>
+            </div>
+            <div class="check_3">
+                <h3>Tổng tiền</h3>
+                <span id="txtTongTien">5000</span>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<script id="tplCart" type="x-tmpl-mustache">
+    <tr id="row_{{BookId}}">
+        <td><img src="{{Imgae}}" alt=""><br><a href="">{{BookName}}</a></td>
+        <td>{{Price}}</td>
+        <td><input type="number" class="txtQuantity"  data-id="{{BookId}}" data-price="{{Price}}" value="{{Quantity}}"></td>
+        <td id="amount_{{BookId}}">{{Amount}}</td>
+        <td><button type="button" class="btnDelete" data-id="{{BookId}}"><i class="fa fa-times" aria-hidden="true"></i></button></td>
+    </tr>
+</script>
+
