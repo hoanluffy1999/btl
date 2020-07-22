@@ -1,0 +1,39 @@
+﻿@model Web_Ban_Sach.Models.NhaXuatBanViewModel
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content">
+    @using (Html.BeginForm("Update", "NhaXuatBan", FormMethod.Post))
+    {
+        if (ViewData["successMsg"] != null)
+        {
+            <div class="text-success">
+                Sửa nhà xuất bản thành công
+            </div>
+        }
+        <div class="form-group">
+            <label for="name">Tên tác giả:</label>
+
+            @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label for="name">Mô tả:</label>
+
+            @Html.TextBoxFor(model => model.Description, new { @class = "form-control g" })
+        </div>
+        <div class="form-group">
+            <label for="name">trạng thái:</label>
+
+            @Html.EditorFor(model => model.Status, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Sửa</button>
+            <button type="reset" class="btn btn-danger">Xóa</button>
+        </div>
+    }
+</div>
+

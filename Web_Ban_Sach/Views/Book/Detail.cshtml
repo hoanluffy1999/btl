@@ -1,0 +1,136 @@
+﻿@model Web_Ban_Sach.Models.BookViewModel
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="bg-ct" id="#head1">
+</div>
+<div class="container">
+    <div class="proc-detail">
+        <div class="right-proc">
+            <div class="right-detail">
+                <div class="img-pro">
+                    <img src="@Model.Image" alt="">
+                </div>
+                <div class="detail-img">
+                    <div class="name">
+                        <h2> @Model.Name</h2>
+                        <p>@Model.Price</p>
+                        <ul>
+                            <li>-Tác giả:<span> @Model.TacGia</span></li>
+                            <li>-NXB: @Model.NhaXuatBan</li>
+                        </ul>
+                    </div>
+                    <div class="icon-pro">
+                        <a href=""><i class="fa fa-star" aria-hidden="true"></i></a>
+                        <a href=""><i class="fa fa-star" aria-hidden="true"></i></a>
+                        <a href=""><i class="fa fa-star" aria-hidden="true"></i></a>
+                        <a href=""><i class="fa fa-star" aria-hidden="true"></i></a>
+                        <a href="">
+                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <div class="name-last">
+                        <p>
+                           @Model.Description
+                        </p>
+                        <label for="">Số Lượng</label><input type="text"><br> <br>
+                        <button type="button" data-id="@Model.ID" id="btnAddToCart">Thêm Vào Giỏ Hàng <i class="fa fa-cart-plus" aria-hidden="true"> </i></button>
+                    </div>
+                    <div class="icon-share">
+                        <a href="">Chia sẻ: </a>
+                        <a href=""> <i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+                        <a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                        <a href=""><i class="fa fa-tumblr-square" aria-hidden="true"></i></a>
+                        <a href=""><i class="fa fa-google" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="main-detail">
+                <h3>Nội dung chính</h3>
+                <p>
+                    @Model.Content
+                </p>
+            </div>
+            <div class="book-add">
+                <h1>Bạn có thể quan tâm</h1>
+                <div class="book-full book-add-1">
+
+                    <div class="book-s">
+                        <a href="chitiet.html"><img src="./images/book_vh/1.jpg" alt=""></a>
+                        <a href="chitiet.html">BỤI SAO</a>
+                        <p>50.000đ</p>
+                        <div class="icon-b">
+                            <a href=""> <i class="fa fa-commenting" aria-hidden="true"></i></a>
+                            <a href=""> <i class="fa fa-heart" aria-hidden="true"></i></a>
+                            <a href=""> <i class="fa fa-cart-plus" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <div class="book-s">
+                        <a href="chitiet.html"> <img src="./images/book_vh/2.jpg" alt=""></a>
+                        <a href="chitiet.html">BỤI SAO</a>
+                        <p>50.000đ</p>
+                        <div class="icon-b">
+                            <a href=""> <i class="fa fa-commenting" aria-hidden="true"></i></a>
+                            <a href=""> <i class="fa fa-heart" aria-hidden="true"></i></a>
+                            <a href=""> <i class="fa fa-cart-plus" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <div class="book-s">
+                        <a href="chitiet.html"> <img src="./images/book_vh/3.jpg" alt=""></a>
+                        <a href="chitiet.html">BỤI SAO</a>
+                        <p>50.000đ</p>
+                        <div class="icon-b">
+                            <a href=""> <i class="fa fa-commenting" aria-hidden="true"></i></a>
+                            <a href=""> <i class="fa fa-heart" aria-hidden="true"></i></a>
+                            <a href=""> <i class="fa fa-cart-plus" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <div class="book-s">
+                        <a href="chitiet.html"><img src="./images/book_vh/4.jpg" alt=""></a>
+                        <a href="chitiet.html">BỤI SAO</a>
+                        <p>50.000đ</p>
+                        <div class="icon-b">
+                            <a href=""> <i class="fa fa-commenting" aria-hidden="true"></i></a>
+                            <a href=""> <i class="fa fa-heart" aria-hidden="true"></i></a>
+                            <a href=""> <i class="fa fa-cart-plus" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="book-s">
+                        <a href="chitiet.html"> <img src="./images/books_kt/1.jpg" alt=""></a>
+                        <a href="chitiet.html">BỤI SAO</a>
+                        <p>50.000đ</p>
+                        <div class="icon-b">
+                            <a href=""> <i class="fa fa-commenting" aria-hidden="true"></i></a>
+                            <a href=""> <i class="fa fa-heart" aria-hidden="true"></i></a>
+                            <a href=""> <i class="fa fa-cart-plus" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                    <div class="book-s">
+                        <a href="chitiet.html"> <img src="./images/books_kt/2.jpg" alt=""></a>
+                        <a href="chitiet.html">BỤI SAO</a>
+                        <p>50.000đ</p>
+                        <div class="icon-b">
+                            <a href=""> <i class="fa fa-commenting" aria-hidden="true"></i></a>
+                            <a href=""> <i class="fa fa-heart" aria-hidden="true"></i></a>
+                            <a href=""> <i class="fa fa-cart-plus" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        @{ Html.RenderAction("ListLeft", "Book");}
+
+
+
+    </div>
+
+</div>
+

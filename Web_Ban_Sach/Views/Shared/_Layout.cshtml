@@ -1,0 +1,108 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="">
+
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Sách Hay</title>
+    <!-- Google font (font-family: 'Roboto', sans-serif; Poppins ; Satisfy) -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,600,600i,700,700i,800"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Maven+Pro:400,700&display=swap" rel="stylesheet">
+
+    <!---font-->
+    <link rel="stylesheet" href="~/css/font-awesome.min.css">
+
+    <!--styles-->
+    <link rel="stylesheet" type="text/css" href="~/css/styles.css">
+
+
+</head>
+
+<body>
+    <!--tạo div bao cả trang-->
+    <div class="container-full">
+        <!--header-->
+        <div class="background">
+
+            @{Html.RenderAction("Header", "Home");}
+
+        </div>
+        <div class="content">
+            @RenderBody()
+        </div>
+        <!--footer-->
+        <div class="footer">
+            <div class="container">
+                <div class="logo-1">
+                    <img src="~/images/logo/3.png" alt=""> <br>
+                    Đến với Sách hay bạn sẽ có rất nhiều lựa chọn!!
+                    <div class=" icon-1">
+                        <a href=""><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+                        <a href="">
+                            <i class="fa fa-google" aria-hidden="true"></i>
+                        </a>
+                        <a href=""><i class="fa fa-tumblr-square" aria-hidden="true"></i></a>
+                        <a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                        <a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>
+
+                    </div>
+                    <div class="menu-1">
+                        <nav>
+                            <ul>
+                                <li><a href="danhsach.html">Sách bán chạy</a></li>
+                                <li><a href="danhsach.html">Sách Nổi bật</a></li>
+                                <li><a href="tacgia.html"> Tác giả</a></li>
+                                <li><a href="tintuc.html"> Tin tức</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+            </div>
+            <div class="next"><a href="#bg"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></a></div>
+            <div class="title-1">
+                <div class="footer-00">
+                    <p>Liên hệ sachhayhay@gmail.com để giải đáp thắc mắc</p>
+                    <p>Sachhay.com <br> Nơi thỏa mãn ước mơ của mọt sách!</p>
+
+                </div>
+                <div class="footer-0">
+                    <ul>
+                        <li>
+                            <i class="fa fa-map-marker" aria-hidden="true"> 96 Định công-Hoàng Mai-Hà nội</i>
+                        </li>
+                        <li><i class="fa fa-phone" aria-hidden="true"></i> 0328670671</li>
+                        <li>
+                            <i class="fa fa-facebook" aria-hidden="true">
+                                <a href="https://www.facebook.com/gin.san.chan">ChuChu</a>
+                            </i>
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <script src="~/bower_components/jquery/dist/jquery.js"></script>
+    <script src="~/bower_components/jquery-ui/jquery-ui.js"></script>
+   
+    <script src="~/bower_components/mustache/mustache.js"></script>
+    <script src="~/Assets/cilent/js/ShoppingCart.js"></script>
+</body>
+</html>

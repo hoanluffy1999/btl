@@ -1,0 +1,59 @@
+﻿@model Web_Ban_Sach.Models.BookCategoryViewModel
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section jsFooter{
+    <script>
+
+    $("#btnImage").on('click', function (e) {
+        e.preventDefault();
+        var finder = new CKFinder();
+        finder.selectActionFunction = function (url) {
+            $("#txtImage").val(url);
+            $('#imgAvata').attr('src', url);
+        }
+        finder.popup();
+    });
+
+    </script>
+}
+<div class="content">
+    @using (Html.BeginForm("Add", "DanhMuc", FormMethod.Post))
+    {
+        if (ViewData["successMsg"] != null)
+        {
+            <div class="text-success">
+                Thêm danh muc thành công
+            </div>
+        }
+        <div class="form-group">
+            <label for="name">Tên danh mucj:</label>
+
+            @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label for="name">Ảnh đại diện:</label>
+
+            <img class="item-image" id="imgAvata" />
+            @Html.TextBoxFor(model => model.Image, new { @class = "form-control", id = "txtImage" })
+            <button type="button" class="btn btn-secondary" id="btnImage">Chon anh</button>
+        </div>
+        <div class="form-group">
+            <label for="name">Mô tả:</label>
+
+            @Html.TextAreaFor(model => model.Description, new { @class = "form-control g" })
+        </div>
+        <div class="form-group">
+            <label for="name">trạng thái:</label>
+
+            @Html.EditorFor(model => model.Status, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Thêm</button>
+            <button type="reset" class="btn btn-danger">Xóa</button>
+        </div>
+    }
+</div>
+
